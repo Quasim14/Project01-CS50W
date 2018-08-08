@@ -24,3 +24,11 @@ db = scoped_session(sessionmaker(bind=engine))
 @app.route("/")
 def index():
     return "Project 1: TODO"
+
+
+@app.route("/register")
+def register():
+    return "Register"
+
+if __name__ == '__main__':
+    app.run(debug=True)
