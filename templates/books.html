@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+
+
+{% block body %}
+    <h1>Books</h1>
+    <form action="/book.html" class="login">
+    <input type="text"  class="autocomplete ui-autocomplete-input" autocomplete="off">
+    <label accesskey="4" for="autocomplete-input">Rechercher un livre </label>
+    <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+</form>
+
+{% endblock %}
