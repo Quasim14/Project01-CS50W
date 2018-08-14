@@ -1,12 +1,45 @@
+
 {% extends 'layout.html' %}
 
+  {% block body %}
+  <h1>Books</h1>
+  <form action="" method="POST" class="form-inline my-2 my-lg-0">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+    <input type="isbn" name="isbn" class="form-control" value={{request.form.isbn}}>
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  </form>
+<div class="fixed-action-btn smooth-scroll" style="bottom: 45px; right: 24px;">
+    <a href="#top-section" class="btn-floating btn-large red">
+        <i class="fa fa-arrow-up"></i>
+    </a>
+</div>
 
-{% block body %}
-    <h1>Books</h1>
-    <form action="/book.html" class="login">
-    <input type="text"  class="autocomplete ui-autocomplete-input" autocomplete="off">
-    <label accesskey="4" for="autocomplete-input">Rechercher un livre </label>
-    <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
-</form>
+
+  <table class="table table-hover table-sm">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">title</th>
+        <th scope="col">Author</th>
+        <th scope="col">year</th>
+        <th scope="col">isbn</th>
+      </tr>
+    </thead>
+        {% for book in books %}
+    <tbody>
+      <tr>
+        <th scope="row">{{ book.id }}</th>
+        <td><a href="book/{{book.id}}">{{ book.title }}</a></td>
+        <td><a href="book/{{book.id}}">{{ book.author }}</a></td>
+        <td><a href="book/{{book.id}}">{{ book.year }}</a></td>
+        <td><a href="book/{{book.id}}">{{ book.isbn }}</a></td>
+      </tr>
+    </tbody>
+    {% endfor %}
+  </table>
+
+
+
 
 {% endblock %}
+
